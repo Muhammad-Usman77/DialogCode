@@ -1,0 +1,61 @@
+import 'package:flutter/material.dart';
+
+class PracWdg extends StatefulWidget {
+  const PracWdg({super.key});
+
+  @override
+  State<PracWdg> createState() => _PracWdgState();
+}
+
+class _PracWdgState extends State<PracWdg> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Dialog Box',
+          style: TextStyle(color: Colors.white),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.blue,
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          TextButton(
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return Dialog(
+                      backgroundColor: Colors.blue.shade100,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(' Dialog Box'),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text('close'),
+                          )
+                        ],
+                      ),
+                    );
+                  });
+            },
+            child: const Center(
+                child: Text(
+              'Show Dialog',
+              style: TextStyle(color: Colors.blue),
+            )),
+          ),
+        ],
+      ),
+    );
+  }
+}
